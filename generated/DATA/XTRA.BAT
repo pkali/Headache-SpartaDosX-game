@@ -1,0 +1,1 @@
+ECHO OFF›:BEGIN›CLS›ECHO ==========>Location: CREDITS<==========›TYPE ›ECHO \t›ECHO ›ECHO \nGo to:›ECHO <1> Play again!›ECHO \n<I> Inventory›ECHO /N \nHit a key.›INKEY %KEY›ECHO \t›IF %KEY=="1"›  SET BATCH=S.BAT›  EXIT›FI›IF %KEY=="I"›  SET BATCH=INV.BAT XTRA.BAT›  EXIT›FI›PAUSE›GOTO BEGIN›

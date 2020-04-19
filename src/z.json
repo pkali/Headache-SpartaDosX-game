@@ -1,0 +1,769 @@
+{
+	"l10n": {
+		"todo": "Things to do:",
+		"ret": "Press <RETURN> to return.",
+		"have": "you have _",
+		"things": "_ things in your backpack.",
+		"full": "Backpack full!",
+		"taken": "...Taken!",
+		"ntaken": "...Not taken!",
+		"sure": "Are you sure? (y/n)",
+		"quit": "Wanna quit do DOS? (y/n)",
+		"loc": "Location: ",
+		"see": "You see:",
+		"inv": "<I> Inventory",
+		"esc": "<ESC> to escape",
+		"key": "Hit a key.",
+		"take": "Wanna take? (y/n) ",
+		"goto": "Go to:",
+		"say": "Your move:",
+		"cant": "Can't do this.",
+		"math_error": "Math error :)"
+
+	},
+	"inventory": {
+		"id": "INV",
+		"name": "Inventory",
+		"desc": "My backpack",
+		"actions": [{
+			"desc": "<0> drop everything",
+			"result": {
+				"var": "comment: hardcoded removing items goes here",
+				"desc": "Don't trust anyone! The things you'll drop will be stolen."
+			}
+		}, {
+			"desc": "<L> look at items",
+			"result": {
+				"var": "comment: hardcoded TYPE for all ART items",
+				"desc": "Some items are interesting to look at."
+			}
+		}],
+		"exits": [{
+			"id": 0,
+			"desc": "back"
+		}]
+	},
+	"start": {
+		"id": "S",
+		"name": "Do the flop",
+		"desc": "Just a bootstrap thing i.e. deleting the variables",
+		"exits": [{
+			"id": "1_0",
+			"desc": "Bathroom"
+		}]
+	},
+	"rooms": [{
+			"id": "1_0",
+			"name": "Bathroom",
+			"desc": "Ow! My head! Wait, why am I laying on the floor? I'm thirsty, but I hate this chlorine tap water.",
+			"items": [{
+				"name": "shower",
+				"desc": "Kinda small, but still useful"
+			}, {
+				"name": "mirror",
+				"desc": "Ew! This painting is horrible! /Oh, it's just me."
+			}, {
+				"name": "soap",
+				"desc": "Slippery!",
+				"take": "true",
+				"art": "ART>SOAP.TXT"
+
+			}, {
+				"name": "shower curtains",
+				"desc": "They look just like a dress that Josephine wore...",
+				"take": "true",
+				"art": "ART>PATTERN.TXT"
+			}, {
+				"name": "comb",
+				"desc": "No one uses it. Why do we even have it?",
+				"take": "true",
+				"art": "ART>COMB.TXT"
+			}],
+			"actions": [{
+				"desc": "take a shower",
+				"conditions": ["soap"],
+				"result": {
+					"var": "nice smell",
+					"desc": "Ah! Feeling fresh"
+				}
+			}, {
+				"conditions": ["nice smell"],
+				"desc": "play with water",
+				"result": {
+					"desc": "What? Everyone needs some fun!"
+				}
+			}, {
+				"desc": "wrap toilet paper around your arm",
+				"result": {
+					"var": "toilet paper",
+					"desc": "Nobody knows when they need to use some toilet paper"
+				}
+			}],
+			"exits": [{
+				"id": 2,
+				"desc": "Corridor"
+			}]
+		}, {
+			"id": 1,
+			"name": "Bathroom",
+			"desc": "Oh god... It smells SO badly in here. Probably should do some cleaning.",
+			"items": [{
+				"name": "shower",
+				"desc": "Kinda small, but still useful"
+			}, {
+				"name": "mirror",
+				"desc": "Ew! This painting is horrible! /Oh, it's just me."
+			}, {
+				"name": "soap",
+				"desc": "Slippery!",
+				"take": "true",
+				"art": "ART>SOAP.TXT"
+
+			}, {
+				"name": "shower curtains",
+				"desc": "They have a flowery pattern like a dress that Josephine wore...",
+				"take": "true",
+				"art": "ART>PATTERN.TXT"
+			}, {
+				"name": "comb",
+				"desc": "No one uses it. Why do we even have it?",
+				"take": "true",
+				"art": "ART>COMB.TXT"
+
+			}],
+			"actions": [{
+				"desc": "take a shower",
+				"conditions": ["soap"],
+				"result": {
+					"var": "nice smell",
+					"desc": "Ah! Feeling fresh"
+				}
+			}, {
+				"desc": "play with water",
+				"result": {
+					"desc": "What? Everyone needs some fun!"
+				}
+			}, {
+				"desc": "wrap toilet paper around your arm",
+				"result": {
+					"var": "toilet paper",
+					"desc": "Nobody knows when they need to use some toilet paper"
+				}
+			}],
+			"exits": [{
+				"id": 2,
+				"desc": "Corridor"
+			}]
+		},
+
+		{
+			"id": 2,
+			"name": "Corridor",
+			"desc": "Man, who designed this place... This corridor looks like a duct.",
+			"items": [{
+				"name": "shoe box",
+				"desc": "Why do I even keep this"
+			}, {
+				"name": "tissue",
+				"desc": "It's not used. It's a miracle! Ok, I may need it.",
+				"take": "true"
+			}, {
+				"name": "penny",
+				"desc": "Lets go shopping! I would love to have a beer.",
+				"take": "true"
+			}],
+			"actions": [{
+				"desc": "look through the window",
+				"result": {
+					"desc": "It's raining, but rather sunny. I'm pretty sure there will be a rainbow soon."
+				}
+			}],
+			"exits": [{
+				"id": 3,
+				"desc": "My Bedroom"
+			}, {
+				"id": 4,
+				"desc": "Kids' Bedroom"
+			}, {
+				"id": 1,
+				"desc": "Bathroom"
+			}, {
+				"id": 5,
+				"desc": "Staircase"
+			}]
+		},
+
+		{
+			"id": 3,
+			"name": "My Bedroom",
+			"desc": "Ah, my favourite stuff in one place.",
+			"items": [{
+				"name": "poster",
+				"desc": "It's my favourite band. I hope they will play a concert somewhere in the neighbourhood."
+			}, {
+				"name": "book",
+				"desc": "It's my childhood book. Why do I still keep this?"
+			}, {
+				"name": "letter",
+				"desc": "I don't want to read it. I know who wrote it.",
+				"take": "true"
+			}],
+			"actions": [{
+				"desc": "lay on bed",
+				"result": {
+					"desc": "Comfy"
+				}
+			}],
+			"exits": [{
+				"id": 2,
+				"desc": "Corridor"
+			}]
+		},
+
+		{
+			"id": 4,
+			"name": "kids' Bedroom",
+			"desc": "The room that my two sons - James and Ethan - live in. It's such a mess!",
+			"items": [{
+				"name": "picture",
+				"desc": "Hey... who's that girl?! Is she James's girlfriend?! Why didn't he tell me about her?"
+			}, {
+				"name": "pen",
+				"desc": "Ew! Someone chewed on it!"
+			}, {
+				"name": "toy car",
+				"desc": "It's kinda creepy. It has a face of a thousand laughing demons.",
+				"take": "true",
+				"art": "ART>CAR.TXT"
+			}, {
+				"name": "Ethan's phone",
+				"desc": "I probably shouldn't take it. It's his property.",
+				"take": "true"
+			}, {
+				"name": "button",
+				"desc": "It's pink... maybe it belongs to the girl from the photo.",
+				"take": "true",
+				"art": "ART>BUTTON.TXT"
+			}],
+			"actions": [{
+				"desc": "unlock Ethan's phone",
+				"conditions": ["Ethan's phone", "paper strip"],
+				"result": {
+					"desc": "Yes! Finally! Let's see... /He has some friends on facebook... Wait, is that a girl?! /He's too young to have a girlfriend!",
+					"var": "unlocked phone"
+				}
+			}, {
+				"desc": "eat candy",
+				"result": {
+					"var": "bad dad",
+					"desc": "It's their's... but it's also soooo good."
+				}
+			}],
+			"exits": [{
+				"id": 2,
+				"desc": "Corridor"
+			}]
+		},
+
+		{
+			"id": 5,
+			"name": "Staircase",
+			"desc": "Damn... this place is creepy...",
+			"items": [{
+				"name": "wallpaper",
+				"desc": "I really hate this pattern, but Josephine loved it...",
+				"art": "ART>PATTERN.TXT"
+			}, {
+				"name": "nickel",
+				"desc": "Is the change-throwing thing a trend now?",
+				"take": "true",
+				"art": "ART>NICKEL.TXT"
+			}],
+			"actions": [{
+				"desc": "scratch the wallpaper",
+				"conditions": ["penny"],
+				"result": {
+					"desc": "There is nothing behind it. Oh no, there is something, small letters, damn it, where are my glasses?"
+				}
+			}],
+			"exits": [{
+				"id": 2,
+				"desc": "Corridor"
+			}, {
+				"id": 6,
+				"desc": "Living room"
+			}]
+		},
+
+		{
+			"id": 6,
+			"name": "Living room",
+			"desc": "I like the big TV and the comfy sofa.",
+			"items": [{
+				"name": "paper strip",
+				"desc": "there is a code written on it! It's also signed by Ethan.",
+				"take": "true",
+				"art": "ART>PAPER.TXT"
+
+			}],
+			"actions": [{
+				"desc": "turn on TV",
+				"result": {
+					"var": "TV sounds",
+					"desc": "Ugh, it's broken. I won't turn it off to see if it goes back on eventually."
+				}
+			}],
+			"exits": [{
+				"id": 5,
+				"desc": "Staircase"
+			}, {
+				"id": 7,
+				"desc": "Kitchen"
+			}, {
+				"id": 8,
+				"desc": "Basement"
+			}]
+		}, {
+			"id": 7,
+			"name": "Kitchen",
+			"desc": "Our kitchen. Nothing actually special about it.",
+			"items": [{
+				"name": "dining table",
+				"desc": "We used to eat dinner together here. We didn't do it since Josephine..."
+			}, {
+				"name": "knife",
+				"desc": "Sharp and handy. It may be useful",
+				"take": "true"
+			}],
+			"actions": [{
+				"desc": "drink water",
+				"result": {
+					"var": "not thirsty",
+					"desc": "Much better."
+				}
+			}],
+			"exits": [{
+				"id": 6,
+				"desc": "Living room"
+			}]
+		}, {
+			"id": 8,
+			"name": "Basement",
+			"desc": "Normal everyday basement. Waaait, what's that obvious glowing circle on the floor?",
+			"items": [{
+				"name": "crowbar",
+				"desc": "A very useful tool.",
+				"take": "true",
+				"art": "ART>CROWBAR.TXT"
+			}, {
+				"name": "broken monkey wrench",
+				"desc": "That was my loyal friend for 15 years. Then it broke.",
+				"take": "true"
+			}],
+			"exits": [{
+				"id": 6,
+				"desc": "Living room"
+			}, {
+				"id": 9,
+				"desc": "The portal"
+			}]
+		},
+		{
+			"id": 9,
+			"name": "Soul Resources office",
+			"talk": true,
+			"desc": "Where am I? Is that hell?! Oh it's just an office. Wait, NOOOOO!!! Who is that Asian looking man in the suit? /- What ale you doing in here Steve? It's not your time!",
+			"exits": [{
+				"id": "9_1",
+				"desc": "I don't know"
+			}, {
+				"id": "9_2",
+				"desc": "Who are you?"
+			}, {
+				"id": "9_3",
+				"desc": "How do you know my name?"
+			}]
+		},
+		{
+			"id": "9_1",
+			"talk": true,
+			"name": "Soul Resources office",
+			"desc": "- What do you mean you don't know! I'm not leady with your punishment! It's not holrible enough! You should reave! And I don't like this smell of you!",
+			"exits": [{
+				"id": 11,
+				"desc": "OK, I will reave now to the left.",
+				"conditions": ["nice smell"]
+			}, {
+				"id": 10,
+				"desc": "These black doors look better."
+			}]
+		}, {
+			"id": "9_2",
+			"name": "Soul Resources office",
+			"talk": true,
+			"desc": "- I'm one of the assistants of the boss. He's not that bad actually./You can't stay in here. Go to the the light. Susan will tell you more. But be neat!",
+			"exits": [{
+				"id": 10,
+				"desc": "White door on the left"
+			}, {
+				"id": 11,
+				"desc": "Black door on the right",
+				"conditions": ["nice smell"]
+			}]
+		}, {
+			"id": "9_3",
+			"name": "Soul Resources office",
+			"talk": true,
+			"desc": "- I know a lot about you Steve. I know whele you live, I know where you work, I know all the horlible things that you've done./Now go and keep clean. I don't have time to talk to you.",
+			"exits": [{
+				"id": 10,
+				"desc": "Sure, going through these white doors."
+			}, {
+				"id": 11,
+				"desc": "I choose black door on the right",
+				"conditions": ["toilet paper"]
+			}, {
+				"id": "9_4",
+				"desc": "And my family? I need to know!"
+			}]
+		}, {
+			"id": "9_4",
+			"name": "Soul Resources office",
+			"talk": true,
+			"desc": "- Ugh... You're worse than I thought. You just need to wait a little longer...",
+			"exits": [{
+				"id": "1_0",
+				"desc": "Wait a little longer then...",
+				"art": "ART>BLAM.TXT"
+			}]
+		},
+		{
+			"id": 10,
+			"name": "Entrance to the maze",
+			"talk": true,
+			"desc": "It's... a maze? Why would anyone make a maze here?! What is that short creature?/- Hey! I want to go home! Let me in!/- Not so fast! What's in that backpack?/You can't have anything in the maze/Also, are you well hydrated? It's a long way!",
+			"exits": [{
+				"id": "10_1",
+				"desc": "Maze",
+				"conditions": ["nothing", "not thirsty"]
+			},{
+				"id": "1_0",
+				"desc": "But I don't wanna go to the maze!",
+				"art": "ART>BLAM.TXT"
+			}]
+		},
+		{
+			"id": 11,
+			"name": "The main corridor of Hell",
+			"talk": true,
+			"desc": "It's... suprisingly crowded. Is it a line or something? /There's a girl wilh a badge that says... Susan?",
+			"exits": [{
+				"id": "11_0",
+				"desc": "Talk to Susan"
+			},{ "id": "11L",
+				"desc": "Cut into the front of the line"
+			}]
+		}, {
+			"id": "11L",
+			"name": "The main corridor of Hell",
+			"desc": "People that were standing in this line pushed you out of it. You fell and hit your head.",
+			"exits": [{
+				"id": "1_0",
+				"desc": "???",
+				"art": "ART>BLAM.TXT"
+			}]
+		}, {
+			"id": "11L2",
+			"name": "The main corridor of Hell",
+			"talk": true,
+			"desc": "They're all just waiting for the Antichrist candidate casting. Nothing special.",
+			"exits": [{
+				"id": "1_0",
+				"desc": "Oh, do I qualify? Do I? Do I?",
+				"art": "ART>BLAM.TXT"
+			},{
+				"id": "11_1",
+				"desc": "How do I get back to my house?"
+			}]
+		}, {
+			"id": "11_0",
+			"name": "The main corridor of Hell",
+			"talk": true,
+			"desc": "- Um, excuse me, you're Susan, right?/- Um yes, that's me, hell-o! How can I hell-p you?/- Hahaha. Very funny. If you couldn't notice I'm in a hurry right now./- Oh yes. I'm so sorry. What do you need?",
+			"exits": [{
+			    "id": "11L2",
+				"desc": "What's that line for?"
+		    }, {
+				"id": "11_1",
+				"desc": "How do I get back to my house?"
+			}]
+		}, {
+			"id": "11_1",
+			"name": "The main corridor of Hell",
+			"talk": true,
+			"desc": "- Steve, right? Oh, It's very easy. I could almost say 'easy as hell'./- Just stop with the puns already./- Oh ok. :( You need to visit the Boss. He'll sent you back to earth./- Where is it?!/- Calm down li'l baby, it's on the right. Go through the post room.",
+			"exits": [{
+				"id": 12,
+				"desc": "Post room"
+			}, {
+				"id": "11_2",
+				"desc": "Wait! Where is my family!?"
+			}]
+		}, {
+			"id": "11_2",
+			"name": "The main corridor of Hell",
+			"desc": "-They didn't tell you...? I though they did.../- What's happening here?! Can anyone explain?!/- I-I'm so sorry Steve... ",
+			"exits": [{
+				"id": "1_0",
+				"desc": "???",
+				"art": "ART>BLAM.TXT"
+			}]
+
+		}, {
+			"id": 12,
+			"name": "Post room",
+			"talk": true,
+			"desc": "It's just a very small room. Everything is normal. Wait, is that a dead body?! Oh it's just the post room assistant... I think.",
+			"exits": [{
+				"id": "12_0",
+				"desc": "Talk to... Him? Her? It?"
+			}, {
+			    "id": "11",
+				"desc": "Retreat!"
+			    
+			}]
+		}, {
+			"id": "12_0",
+			"name": "Post room",
+			"talk": true,
+			"desc": "- Hello? Excuse me, are you the post room assistant? Are you even alive?/- Yes. I am. And no. I'm not. Just like everyone else here. How can I help you?",
+			"exits": [{
+				"id": "12_2",
+				"desc": "Just get me out of here!"
+			}, {
+				"id": "12_2",
+				"desc": "Tell your stupid boss I'm not going to rot here!"
+			}, { 
+			    "id": "12_1",
+				"desc": "Can you please tell me where is 'The Boss's office'?"}]
+		}, {
+			"id": "12_1",
+			"name": "Post room",
+			"talk": true,
+			"desc": "- Ugh. Yes, sure. It's here, on the right. Just try this vending machine.",
+			"exits": [{
+				"id": "13",
+				"desc": "Drop the nickel",
+				"conditions": ["nickel"]
+			},{
+				"id": "1_0",
+				"desc": "Drop the penny",
+				"conditions": ["penny"]
+			},{
+				"id": "1_0",
+				"desc": "Try the comb trick.",
+				"conditions": ["comb"]
+			},{
+				"id": "1_0",
+				"desc": "Screw this, lemme in!!!",
+				"art": "ART>BLAM.TXT"
+			}]
+		}, {
+			"id": "12_2",
+			"name": "Post room",
+			"desc": "- Ugh. You are really going to be that annoying, aren't ya? You know what? This is NOT worth the minimum wage in Hell. Screw it. I'm out.",
+			"exits": [{
+				"id": "1_0",
+				"desc": "???",
+				"art": "ART>BLAM.TXT"
+			}]
+		}, {
+			"id": 13,
+			"name": "Inspiration room",
+			"desc": "What?! This is not the Boss's office! It's an... 'Inspiration room'? Why would they write this thing on the wall?/- Hello young man! Would You like to see my new washing machine project?",
+			"actions": [{
+				"desc": "See the machine",
+				"result": {
+				    "var": "saw machine",
+					"desc": "Dante washing machine, model LCF-665"
+				},
+				"art": "ART>WASH.TXT"
+			}],"exits": [{
+				"id": 131,
+				"desc": "What? Who needs washing machines in hell?!"
+			}, {
+				"id": 133,
+				"desc": "No, I'm in a hurry.",
+				"conditions": ["saw machine"]
+			}]
+		}, {
+			"id": 133,
+			"name": "Inspiration room",
+			"talk": true,
+			"desc": "- Not my problem! I need to sell just 1 to make Lucifer free me from this horrible job! I just need a piece to complete my project... Do you have something round and small? I would like it to have tiny holes.",
+			"actions": [{
+				"desc": "Give him a button",
+				"conditions": ["button"],
+				"result": {
+				    "var": "gave button",
+					"desc": "Thank you very much! You don't deserve to go to hell my friend!"
+				}}], 
+			"exits": [{
+				"id": 14,
+				"desc": "The Boss's office",
+				"conditions": ["gave button"]
+			},{
+				"id": "1_0",
+				"desc": "Oh come on, no time to loose!"
+			}]
+		}, {
+			"id": 131,
+			"name": "Inspiration room",
+			"talk": true,
+			"desc": "- They're not going to be used in hell idiot! We're going to sell them to humans on earth!/There's a door with 'The Boss's office' written on it!",
+			"exits": [{
+				"id": "1_0",
+				"desc": "Open Boss's office door.",
+				"art": "ART>BLAM.TXT"
+			},{
+				"id": "1_0",
+				"desc": "Ha ha, who'd buy such a monstosity?",
+				"art": "ART>BLAM.TXT"
+			}]
+		}, {
+			"id": 14,
+			"name": "Lucifer's office",
+			"talk": true,
+			"art": "ART>DEVIL.TXT",
+			"desc": "I'm here! I'm finally here! Ok, let's talk to Mr. Boss. I'm sure he's a big douche./- Um, hello mister. My name is Steve and I really want to go back to my house./- Steve! Hello my dear victimized soul! Oh, of course you can go back home. Also, here's your family. Weren't you worried about them?",
+			"exits": [{
+				"id": 141,
+				"desc": "Yeah... I mean, kinda? "
+			}, {
+				"id": 141,
+				"desc": "Not really..."
+
+			}, {
+				"id": "1_0",
+				"desc": "Apage, Satanas!!!",
+				"art": "ART>BLAM.TXT"
+
+			}]
+		}, {
+			"id": 141,
+			"name": "Lucifer's office",
+			"talk": true,
+			"desc": "- Whatever. I don't care./- Wait, Josephine? Is that You?/- Yes. I am dead./- She sure is./- So... are we going to go home?/- Yeah but there's one more test. Are you a bad father? Did you mess with your son's phone?",
+			"exits": [{
+				"id": "1_0",
+				"desc": "YES",
+				"conditions": ["unlocked phone"]
+			}, {
+				"id": "15",
+				"desc": "NO",
+				"conditions": ["!unlocked phone"]
+
+			}, {
+				"id": "1_0",
+				"desc": "I don't know!",
+				"art": "ART>BLAM.TXT"
+			}]
+		}, {
+			"id": "15",
+			"name": "YOU WON!",
+			"art": "ART>WON.TXT",
+			"desc": "Anyways, thanks for playing! Maybe you'd want to go again and discover various secrets and deaths. :D Have fun!",
+			"exits": [{
+				"id": "TITLE",
+				"desc": "Play again!"
+			},{
+			    "id": "EXIT",
+				"desc": "Quit to DOS"
+			}]
+		}, {
+			"id": "10_1",
+			"name": "Maze",
+			"talk": true,
+			"desc": "I don't like this maze. It's so cold and sad. I have to go back home to my children.",
+			"exits": [{
+				"id": "10_1",
+				"desc": "go left"
+			}, {
+				"id": "10_3",
+				"desc": "go right"
+			}]
+		}, {
+			"id": "10_2",
+			"name": "Maze",
+			"talk": true,
+			"desc": "I don't like this maze. It's so cold and sad. I have to go back home to my children. Wait... is this a... hammer? Who would possibly need this here?!",
+			"exits": [{
+				"id": "10_1",
+				"desc": "go left"
+			}, {
+				"id": "10_3",
+				"desc": "go right"
+			}, {
+				"id": "S",
+				"desc": "Hit yourself in the head with the hammer. Wait, what?",
+				"art": "ART>BANG.TXT"
+			}]
+		}, {
+			"id": "10_3",
+			"name": "Maze",
+			"talk": true,
+			"desc": "I don't like this maze. It's so cold and sad. I have to go back home to my children.",
+			"exits": [{
+				"id": "10_4",
+				"desc": "go left"
+			}, {
+				"id": "10_1",
+				"desc": "go right"
+			}]
+
+		}, {
+			"id": "10_4",
+			"name": "Maze",
+			"talk": true,
+			"desc": "I don't like this maze. It's so cold and sad. I have to go back home to my children.",
+			"exits": [{
+				"id": "10_1",
+				"desc": "go left"
+			}, {
+				"id": "10_5",
+				"desc": "go right"
+			}]
+
+		}, {
+			"id": "10_5",
+			"name": "Maze",
+			"talk": true,
+			"desc": "I don't like this maze. It's so cold and sad. I have to go back home to my children.",
+			"exits": [{
+				"id": "10_2",
+				"desc": "go left"
+			}, {
+				"id": "10_1",
+				"desc": "go right"
+			}]
+
+		}, {
+			"id": "HEADACHE",
+			"name": "Title screen",
+			"art": "ART>TITLE.TXT",
+			"art-pause": true,
+			"desc": "Pure SDX batch game for Wapniak 2017 by our5oft.pl./Run ENV.SYS beforehand!",
+			"actions": [{
+				"desc": "Credits and Greetings",
+				"art": "ART>CREDITS.TXT"
+			}],
+			"exits": [{
+				"id": "S",
+				"desc": "Start the game!"
+			},{
+				"id": "EXIT",
+				"desc": "Quit to DOS"
+			}]
+		}
+	]
+}
